@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickVideo - Video Downloader</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+    body{min-height:100vh;background:#0f172a;color:white;display:flex;justify-content:center;align-items:center;padding:20px}
+    .container{width:100%;max-width:650px;text-align:center}
+    .logo{font-size:34px;font-weight:bold;margin-bottom:10px}
+    .logo span{color:#38bdf8}
+    .subtitle{color:#94a3b8;margin-bottom:30px;font-size:16px}
+    .card{background:#1e293b;padding:30px;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,.35)}
+    .input-box{display:flex;gap:10px;margin-top:20px}
+    input{flex:1;padding:16px;border:1px solid #475569;border-radius:12px;outline:none;background:#0f172a;color:white;font-size:15px}
+    input::placeholder{color:#64748b}
+    button{padding:16px 22px;border:none;border-radius:12px;background:#38bdf8;color:#082f49;font-weight:bold;cursor:pointer}
+    #message{margin-top:20px;color:#cbd5e1}
+    .features{display:flex;justify-content:space-around;margin-top:25px;color:#94a3b8;font-size:14px}
+    .feature{padding:10px}
+    @media(max-width:600px){.input-box{flex-direction:column}button{width:100%}.features{flex-direction:column;gap:5px}.card{padding:20px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">⚡ Quick<span>Video</span></div>
+    <div class="subtitle">Download videos from URLs you are authorized to download</div>
+    <div class="card">
+      <h2>Paste Video Link</h2>
+      <div class="input-box">
+        <input type="url" id="videoUrl" placeholder="https://example.com/video.mp4">
+        <button onclick="downloadVideo()">Download</button>
+      </div>
+      <div id="message"></div>
+    </div>
+    <div class="features">
+      <div class="feature">⚡ Fast</div>
+      <div class="feature">📱 Mobile Friendly</div>
+      <div class="feature">🔒 Simple & Safe</div>
+    </div>
+  </div>
+  <script>
+    function downloadVideo(){
+      const url=document.getElementById("videoUrl").value.trim();
+      const message=document.getElementById("message");
+      if(!url){message.innerText="⚠️ Please paste a video URL.";return;}
+      message.innerText="✅ Link received. Download processing will be connected to the backend.";
+    }
+  </script>
+</body>
+</html>
