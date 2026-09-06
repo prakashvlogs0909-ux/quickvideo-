@@ -3,133 +3,379 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QuickVideo</title>
+
+<title>QuickVideo - Fast Video Downloader</title>
 
 <style>
-*{box-sizing:border-box;font-family:Arial,sans-serif}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+  scroll-behavior:smooth;
+}
 
 body{
-margin:0;
-min-height:100vh;
-background:#0f172a;
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px
+  background:#0f172a;
+  color:white;
+}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:#111c33;
+  padding:16px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #26344d;
+}
+
+.nav-logo{
+  font-size:22px;
+  font-weight:bold;
+}
+
+.nav-logo span{
+  color:#38bdf8;
+}
+
+nav a{
+  color:#cbd5e1;
+  text-decoration:none;
+  margin-left:18px;
+  font-size:14px;
+}
+
+nav a:hover{
+  color:#38bdf8;
+}
+
+.hero{
+  min-height:90vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px 20px;
 }
 
 .container{
-width:100%;
-max-width:650px;
-text-align:center
+  width:100%;
+  max-width:700px;
 }
 
 .logo{
-font-size:38px;
-font-weight:bold;
-margin-bottom:10px
+  font-size:52px;
+  font-weight:bold;
+  margin-bottom:15px;
 }
 
-.logo span{color:#38bdf8}
+.logo span{
+  color:#38bdf8;
+}
 
 .subtitle{
-color:#94a3b8;
-margin-bottom:30px
+  color:#94a3b8;
+  font-size:17px;
+  line-height:1.6;
+  margin-bottom:35px;
 }
 
 .card{
-background:#1e293b;
-padding:30px;
-border-radius:20px
+  background:#1e293b;
+  padding:35px;
+  border-radius:24px;
+  box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+
+.card h2{
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#94a3b8;
+  font-size:14px;
 }
 
 input{
-width:100%;
-padding:16px;
-margin-top:20px;
-border:1px solid #475569;
-border-radius:12px;
-background:#0f172a;
-color:white;
-font-size:15px
+  width:100%;
+  padding:17px;
+  margin-top:22px;
+  border:1px solid #475569;
+  border-radius:13px;
+  outline:none;
+  background:#0f172a;
+  color:white;
+  font-size:15px;
+}
+
+input:focus{
+  border-color:#38bdf8;
 }
 
 button{
-width:100%;
-padding:16px;
-margin-top:12px;
-border:0;
-border-radius:12px;
-background:#38bdf8;
-color:#082f49;
-font-weight:bold;
-font-size:16px
+  width:100%;
+  padding:17px;
+  margin-top:12px;
+  border:0;
+  border-radius:13px;
+  background:#38bdf8;
+  color:#082f49;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover{
+  transform:translateY(-2px);
 }
 
 #message{
-margin-top:18px;
-color:#cbd5e1
+  margin-top:18px;
+  color:#cbd5e1;
+}
+
+section{
+  padding:80px 20px;
+  text-align:center;
+}
+
+.section-box{
+  max-width:800px;
+  margin:auto;
+}
+
+section h2{
+  font-size:32px;
+  margin-bottom:18px;
+}
+
+section p{
+  color:#94a3b8;
+  line-height:1.7;
+}
+
+.features{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.feature{
+  background:#1e293b;
+  padding:22px;
+  border-radius:16px;
+  min-width:180px;
+}
+
+.feature h3{
+  margin-bottom:8px;
+}
+
+.contact-box{
+  background:#1e293b;
+  padding:30px;
+  border-radius:20px;
+  max-width:600px;
+  margin:auto;
+}
+
+footer{
+  text-align:center;
+  padding:30px 20px;
+  color:#64748b;
+  border-top:1px solid #26344d;
+}
+
+@media(max-width:600px){
+
+  nav{
+    padding:14px;
+  }
+
+  nav a{
+    margin-left:8px;
+    font-size:12px;
+  }
+
+  .logo{
+    font-size:40px;
+  }
+
+  .hero{
+    min-height:85vh;
+  }
+
+  .card{
+    padding:25px 18px;
+  }
+
+  section{
+    padding:60px 20px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<nav>
+  <div class="nav-logo">⚡ Quick<span>Video</span></div>
+
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+
+<section class="hero" id="home">
+
 <div class="container">
 
-<div class="logo">⚡ Quick<span>Video</span></div>
+  <div class="logo">
+    ⚡ Quick<span>Video</span>
+  </div>
 
-<div class="subtitle">
-Download videos you are authorized to download
+  <div class="subtitle">
+    A simple and fast way to download videos
+    that you are authorized to download.
+  </div>
+
+  <div class="card">
+
+    <h2>Paste Video Link</h2>
+
+    <p>Use an authorized direct video URL such as an .mp4 file.</p>
+
+    <input
+      type="url"
+      id="videoUrl"
+      placeholder="https://example.com/video.mp4"
+    >
+
+    <button onclick="downloadVideo()">
+      ⬇ Download Video
+    </button>
+
+    <div id="message"></div>
+
+  </div>
+
 </div>
 
-<div class="card">
+</section>
 
-<h2>Paste Video Link</h2>
 
-<input
-type="url"
-id="videoUrl"
-placeholder="https://example.com/video.mp4">
+<section id="about">
 
-<button onclick="downloadVideo()">
-Download
-</button>
+<div class="section-box">
 
-<div id="message"></div>
+  <h2>About QuickVideo</h2>
+
+  <p>
+    QuickVideo is a simple web project designed to make
+    authorized video downloads easier and faster.
+    Please download only videos that you own or have
+    permission to download.
+  </p>
+
+  <div class="features">
+
+    <div class="feature">
+      <h3>⚡ Fast</h3>
+      <p>Simple and lightweight website.</p>
+    </div>
+
+    <div class="feature">
+      <h3>📱 Mobile</h3>
+      <p>Designed to work on phones.</p>
+    </div>
+
+    <div class="feature">
+      <h3>🔒 Safe</h3>
+      <p>Use only authorized video links.</p>
+    </div>
+
+  </div>
 
 </div>
 
+</section>
+
+
+<section id="contact">
+
+<div class="section-box">
+
+  <h2>Contact</h2>
+
+  <div class="contact-box">
+
+    <p>
+      Have feedback or suggestions for QuickVideo?
+      You can add your contact information here later.
+    </p>
+
+  </div>
+
 </div>
+
+</section>
+
+
+<footer>
+  © 2026 QuickVideo — Built for authorized video downloads.
+</footer>
+
 
 <script>
+
 function downloadVideo(){
 
-const url=document.getElementById("videoUrl").value.trim();
-const message=document.getElementById("message");
+  const url =
+    document.getElementById("videoUrl").value.trim();
 
-if(!url){
-message.innerText="⚠️ Please paste a video URL.";
-return;
+  const message =
+    document.getElementById("message");
+
+  if(!url){
+
+    message.innerText =
+      "⚠️ Please paste a video URL.";
+
+    return;
+  }
+
+  if(!url.toLowerCase().includes(".mp4")){
+
+    message.innerText =
+      "⚠️ Please use an authorized direct .mp4 video link.";
+
+    return;
+  }
+
+  const link =
+    document.createElement("a");
+
+  link.href = url;
+  link.download = "video.mp4";
+  link.target = "_blank";
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  message.innerText =
+    "✅ Download started.";
+
 }
 
-if(!url.toLowerCase().includes(".mp4")){
-message.innerText="⚠️ Please use an authorized direct .mp4 video link.";
-return;
-}
-
-const link=document.createElement("a");
-link.href=url;
-link.download="video.mp4";
-link.target="_blank";
-
-document.body.appendChild(link);
-link.click();
-document.body.removeChild(link);
-
-message.innerText="✅ Download started.";
-}
 </script>
 
 </body>
